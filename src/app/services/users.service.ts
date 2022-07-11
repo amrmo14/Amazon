@@ -14,15 +14,15 @@ export class UsersService {
   deleteUser(userId: number) {
     return this.http.delete<IUser>(`http://localhost:3000/users/${userId}`);
   }
-  getUser(query?: any) {
+  getUser(query?: any): Observable<IUser[]> {
     if (isNaN(query) && query.includes('.com')) {
       console.log('.com');
-      return this.http.get<IUser[] | IUser>(
+      return this.http.get<IUser[]>(
         `http://localhost:3000/users?email=${query}`
       );
-    } else if (query.length === 9 && typeof query === 'number') {
+    } else if (!isNaN(query)) {
       console.log('National');
-      return this.http.get<IUser>(
+      return this.http.get<IUser[]>(
         `http://localhost:3000/users?national_id=${query}`
       );
     } else if (
@@ -38,8 +38,10 @@ export class UsersService {
     } else if (query == '') {
       console.log('enm');
       return this.http.get<IUser[]>('http://localhost:3000/users');
+    } else {
+      console.log('return');
+      return this.http.get<IUser[]>('http://localhost:3000/users');
     }
-    console.log('return');
-    return this.http.get<IUser[]>('http://localhost:3000/users');
   }
+  updateUser() {}
 }

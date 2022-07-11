@@ -9,7 +9,7 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./users.component.scss'],
 })
 export class UsersComponent implements OnInit, OnChanges {
-  users: IUser[] = [];
+  users!: IUser[];
   constructor(private userServ: UsersService, private router: Router) {}
 
   ngOnInit(): void {
@@ -23,9 +23,7 @@ export class UsersComponent implements OnInit, OnChanges {
       this.users = data;
     });
   }
-  addNewUser() {
-    this.router.navigateByUrl('users/newUser');
-  }
+
   deleteUser(userId: number) {
     let Is_Deleted = confirm('Are Your sure you want to delete this user ?');
     if (Is_Deleted) {
@@ -39,8 +37,11 @@ export class UsersComponent implements OnInit, OnChanges {
     query = isNaN(query) ? query : Number(query);
     console.log('type of ', typeof query);
     this.userServ.getUser(query).subscribe((data) => {
-      console.log(typeof data);
       console.log(data);
+      this.users = data;
     });
+  }
+  editUser(id: number) {
+    this.router.navigate(['users', id]);
   }
 }

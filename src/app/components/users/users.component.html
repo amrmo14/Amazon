@@ -8,7 +8,7 @@
     <input
       type="text"
       class="search__input"
-      placeholder="Search for a specific user"
+      placeholder="Search by Name , Email or National Id"
       #searchValue
     />
     <button
@@ -18,23 +18,14 @@
       Search
     </button>
   </div>
-  <div class="row gx-5 gy-5 my-5">
+  <div class="row gx-5 gy-5 my-5 justify-content-sm-start">
     <div
       class="col-md-5 ms-auto d-flex align-items-center justify-content-around customCard"
       *ngFor="let user of users"
     >
       <div class="card__left">
         <div>
-          <img
-            src="../../../assets/active.png"
-            alt=""
-            *ngIf="user.status == 'active'"
-          />
-          <img
-            src="../../../assets/unactive.png"
-            alt=""
-            *ngIf="user.status == 'unactive'"
-          />
+          <img src="../../../assets/amazon_mobile.png" alt="" />
         </div>
       </div>
       <div class="card__center">
@@ -53,7 +44,7 @@
         <div class="delete" (click)="deleteUser(user.id)">
           <i class="fa-solid fa-xmark"></i>
         </div>
-        <div class="edit">
+        <div class="edit" (click)="editUser(user.id)">
           <i class="fa-solid fa-pen-to-square"></i>
         </div>
       </div>

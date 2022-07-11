@@ -45,7 +45,7 @@ i {
   // padding: 2rem !important;
   color: #232f3e;
   border-radius: 1rem;
-  box-shadow: 0.08rem 0.01rem 0.25rem #232f3e62;
+  box-shadow: 0.08rem 0.01rem 0.25rem #232f3e31;
   transition: all 0.3s ease;
   background-color: transparent;
   padding: 1rem 1.5rem;
@@ -56,6 +56,9 @@ i {
   box-shadow: none;
 }
 .card__left {
+  img {
+    height: 4rem;
+  }
   div {
     margin-right: 3rem;
   }
@@ -97,13 +100,14 @@ i {
 }
 
 .search__input {
-  width: 30rem;
+  width: 25rem;
   padding: 0.7rem 2rem;
   outline: none;
   border: 0.1rem solid #232f3e;
   transition: all 0.3s ease;
   margin-right: 2rem;
   border-radius: 1rem;
+  margin-bottom: 1rem;
 }
 .search__input:focus {
   border: 0.1rem solid #ff9900;

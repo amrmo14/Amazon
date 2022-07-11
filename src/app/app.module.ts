@@ -11,6 +11,7 @@ import { SellersComponent } from './components/sellers/sellers.component';
 import { ProductsComponent } from './components/products/products.component';
 import { UsersService } from './services/users.service';
 import { HttpClientModule } from '@angular/common/http';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     UsersComponent,
     SellersComponent,
     ProductsComponent,
+    EditUserComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [UsersService],
