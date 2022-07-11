@@ -1,12 +1,13 @@
-<a routerLink="" class="d-flex align-items-center">
+<a routerLink="" class="d-flex align-items-center backBtn">
   <i class="fa-solid fa-backward"></i>
   <p class="p-0 m-0">Back</p>
 </a>
 <div class="container">
   <h1 class="users__header"><span>Amazon</span> Users</h1>
+  <a href="" class="addBtn" (click)="addNewUser()">Add New User</a>
   <div class="row gx-5 gy-5 my-5">
     <div
-      class="col-md-5 ms-auto d-flex align-items-center py-2 customCard"
+      class="col-md-5 ms-auto d-flex align-items-center customCard"
       *ngFor="let user of users"
     >
       <div class="card__left">
@@ -33,6 +34,7 @@
           <span>National Id: </span>
           {{ user.national_id }}
         </p>
+        <p class="card__status"><span>Status: </span> {{ user.status }}</p>
       </div>
       <div class="card__right"></div>
     </div>

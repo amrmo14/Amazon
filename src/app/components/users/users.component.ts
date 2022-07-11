@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IUser } from 'src/app/models/IUser';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -9,7 +10,7 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class UsersComponent implements OnInit {
   users: IUser[] = [];
-  constructor(private userServ: UsersService) {}
+  constructor(private userServ: UsersService, private router: Router) {}
 
   ngOnInit(): void {
     this.getUsers();
@@ -19,5 +20,8 @@ export class UsersComponent implements OnInit {
     this.userServ.getUsers().subscribe((data) => {
       this.users = data;
     });
+  }
+  addNewUser() {
+    this.router.navigateByUrl('users/newUser');
   }
 }

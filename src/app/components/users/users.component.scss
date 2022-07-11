@@ -1,5 +1,5 @@
-a:visited,
-a:link {
+.backBtn:visited,
+.backBtn:link {
   text-decoration: none;
   color: #232f3e;
   transition: all 0.3s ease;
@@ -9,8 +9,8 @@ a:link {
     font-size: 1.5rem;
   }
 }
-a:hover,
-a:active {
+.backBtn:hover,
+.backBtn:active {
   color: #232f3e80;
 }
 i {
@@ -26,6 +26,21 @@ i {
     color: #ff9900;
   }
 }
+.addBtn:link,
+.addBtn:visited {
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  background-color: #232f3e;
+  padding: 0.6rem 1.5rem;
+  border-radius: 0.3rem;
+  transition: all 0.3s ease;
+}
+.addBtn:hover,
+.addBtn:active {
+  background-color: white;
+  color: #232f3e;
+}
 .customCard {
   // padding: 2rem !important;
   color: #232f3e;
@@ -33,6 +48,7 @@ i {
   box-shadow: 0.08rem 0.01rem 0.25rem #232f3e62;
   transition: all 0.3s ease;
   background-color: transparent;
+  padding: 1.8rem 1.5rem;
 }
 .customCard:hover {
   background-color: #232f3e;
