@@ -1,0 +1,57 @@
+.img-box {
+  height: 100%;
+  width: 100%;
+
+  img {
+    height: 100%;
+  }
+  .dashboard__left {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+}
+
+.dashboard__right {
+  font-family: Roboto;
+  h2 {
+    font-size: 3rem;
+    margin: 3rem 0;
+    font-weight: 300;
+    span {
+      color: #ff9900;
+      font-weight: bold;
+    }
+  }
+  .customGroup__btns {
+    justify-self: center !important;
+    display: flex;
+    flex-direction: column;
+  }
+  .customBtn {
+    border: 0.1rem solid transparent;
+    background-color: transparent;
+    padding: 1rem 2rem;
+    outline: none;
+    text-transform: uppercase;
+    margin: 1rem 0;
+
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+  }
+  .customBtn:hover {
+    box-shadow: 0.1rem 0.1rem 0.3rem rgba(0, 0, 0, 0.593);
+    color: #ff9900;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .img-box {
+    img {
+      height: 20rem;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
