@@ -9,7 +9,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UsersComponent } from './components/users/users.component';
 import { SellersComponent } from './components/sellers/sellers.component';
 import { ProductsComponent } from './components/products/products.component';
-
+import { UsersService } from './services/users.service';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,13 +19,10 @@ import { ProductsComponent } from './components/products/products.component';
     DashboardComponent,
     UsersComponent,
     SellersComponent,
-    ProductsComponent
+    ProductsComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  providers: [UsersService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

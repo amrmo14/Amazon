@@ -1,0 +1,53 @@
+a:visited,
+a:link {
+  text-decoration: none;
+  color: #232f3e;
+  transition: all 0.3s ease;
+  background-color: #ff9900;
+  p {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+}
+a:hover,
+a:active {
+  color: #232f3e80;
+}
+i {
+  font-size: 1.5rem;
+  margin: 1rem;
+}
+.users__header {
+  font-size: 3rem;
+  font-weight: 300;
+  margin: 2rem 0;
+  span {
+    font-weight: bold;
+    color: #ff9900;
+  }
+}
+.customCard {
+  // padding: 2rem !important;
+  color: #232f3e;
+  border-radius: 1rem;
+  box-shadow: 0.08rem 0.01rem 0.25rem #232f3e62;
+  transition: all 0.3s ease;
+  background-color: transparent;
+}
+.customCard:hover {
+  background-color: #232f3e;
+  color: white;
+  box-shadow: none;
+}
+.card__left {
+  div {
+    margin-right: 2rem;
+  }
+}
+
+.card__center {
+  font-weight: bold;
+  span {
+    font-weight: 300;
+  }
+}

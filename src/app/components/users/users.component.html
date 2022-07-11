@@ -1,1 +1,40 @@
-<p>users works!</p>
+<a routerLink="" class="d-flex align-items-center">
+  <i class="fa-solid fa-backward"></i>
+  <p class="p-0 m-0">Back</p>
+</a>
+<div class="container">
+  <h1 class="users__header"><span>Amazon</span> Users</h1>
+  <div class="row gx-5 gy-5 my-5">
+    <div
+      class="col-md-5 ms-auto d-flex align-items-center py-2 customCard"
+      *ngFor="let user of users"
+    >
+      <div class="card__left">
+        <div>
+          <img
+            src="../../../assets/active.png"
+            alt=""
+            *ngIf="user.status == 'active'"
+          />
+          <img
+            src="../../../assets/unactive.png"
+            alt=""
+            *ngIf="user.status == 'unactive'"
+          />
+        </div>
+      </div>
+      <div class="card__center">
+        <p class="card__name"><span>Name: </span> {{ user.name }}</p>
+        <p class="card__email"><span>Email: </span> {{ user.email }}</p>
+        <p class="card__password">
+          <span>Password: </span> {{ user.password }}
+        </p>
+        <p class="card_nathId">
+          <span>National Id: </span>
+          {{ user.national_id }}
+        </p>
+      </div>
+      <div class="card__right"></div>
+    </div>
+  </div>
+</div>
