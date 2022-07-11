@@ -4,10 +4,23 @@
 </a>
 <div class="container">
   <h1 class="users__header"><span>Amazon</span> Users</h1>
-  <a href="" class="addBtn" (click)="addNewUser()">Add New User</a>
+  <div class="search">
+    <input
+      type="text"
+      class="search__input"
+      placeholder="Search for a specific user"
+      #searchValue
+    />
+    <button
+      class="searchBtn"
+      (click)="getUser(searchValue.value); searchValue.value = ''"
+    >
+      Search
+    </button>
+  </div>
   <div class="row gx-5 gy-5 my-5">
     <div
-      class="col-md-5 ms-auto d-flex align-items-center customCard"
+      class="col-md-5 ms-auto d-flex align-items-center justify-content-around customCard"
       *ngFor="let user of users"
     >
       <div class="card__left">
@@ -36,7 +49,14 @@
         </p>
         <p class="card__status"><span>Status: </span> {{ user.status }}</p>
       </div>
-      <div class="card__right"></div>
+      <div class="card__right align-self-start">
+        <div class="delete" (click)="deleteUser(user.id)">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="edit">
+          <i class="fa-solid fa-pen-to-square"></i>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -1,14 +1,6 @@
 {
   "users": [
     {
-      "id": 1,
-      "national_id": 123456789,
-      "name": "Omar",
-      "email": "Omar@gmail.com",
-      "password": "asd123asd",
-      "status": "unactive"
-    },
-    {
       "id": 2,
       "national_id": 123456789,
       "name": "Omar",
@@ -18,7 +10,7 @@
     },
     {
       "id": 3,
-      "national_id": 123456789,
+      "national_id": 123456780,
       "name": "Omar",
       "email": "Omar@gmail.com",
       "password": "asd123asd",
@@ -26,7 +18,7 @@
     },
     {
       "id": 4,
-      "national_id": 123456789,
+      "national_id": 123456781,
       "name": "Omar",
       "email": "Omar@gmail.com",
       "password": "asd123asd",
@@ -34,7 +26,7 @@
     },
     {
       "id": 5,
-      "national_id": 123456789,
+      "national_id": 123456782,
       "name": "Omar",
       "email": "Omar@gmail.com",
       "password": "asd123asd",
@@ -42,7 +34,7 @@
     },
     {
       "id": 6,
-      "national_id": 123456789,
+      "national_id": 123456783,
       "name": "Omar",
       "email": "Omar@gmail.com",
       "password": "asd123asd",
@@ -50,39 +42,7 @@
     },
     {
       "id": 7,
-      "national_id": 123456789,
-      "name": "Omar",
-      "email": "Omar@gmail.com",
-      "password": "asd123asd",
-      "status": "active"
-    },
-    {
-      "id": 8,
-      "national_id": 123456789,
-      "name": "Omar",
-      "email": "Omar@gmail.com",
-      "password": "asd123asd",
-      "status": "active"
-    },
-    {
-      "id": 9,
-      "national_id": 123456789,
-      "name": "Omar",
-      "email": "Omar@gmail.com",
-      "password": "asd123asd",
-      "status": "active"
-    },
-    {
-      "id": 10,
-      "national_id": 123456789,
-      "name": "Omar",
-      "email": "Omar@gmail.com",
-      "password": "asd123asd",
-      "status": "active"
-    },
-    {
-      "id": 11,
-      "national_id": 123456789,
+      "national_id": 123456784,
       "name": "Omar",
       "email": "Omar@gmail.com",
       "password": "asd123asd",

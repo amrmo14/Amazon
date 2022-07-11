@@ -48,7 +48,7 @@ i {
   box-shadow: 0.08rem 0.01rem 0.25rem #232f3e62;
   transition: all 0.3s ease;
   background-color: transparent;
-  padding: 1.8rem 1.5rem;
+  padding: 1rem 1.5rem;
 }
 .customCard:hover {
   background-color: #232f3e;
@@ -57,13 +57,62 @@ i {
 }
 .card__left {
   div {
-    margin-right: 2rem;
+    margin-right: 3rem;
   }
 }
 
 .card__center {
+  justify-self: start !important;
   font-weight: bold;
   span {
     font-weight: 300;
   }
+  p:not(:last-child) {
+    margin-bottom: 0.3rem;
+  }
+}
+
+.card__right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .delete,
+  .edit {
+    background-color: rgba(128, 128, 128, 0.008);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    i {
+      font-size: 0.8rem;
+    }
+  }
+  .delete {
+    margin-bottom: 0.5rem;
+  }
+  .delete:hover,
+  .edit:hover {
+    background-color: rgba(128, 128, 128, 0.147);
+    color: white;
+  }
+}
+
+.search__input {
+  width: 30rem;
+  padding: 0.7rem 2rem;
+  outline: none;
+  border: 0.1rem solid #232f3e;
+  transition: all 0.3s ease;
+  margin-right: 2rem;
+  border-radius: 1rem;
+}
+.search__input:focus {
+  border: 0.1rem solid #ff9900;
+}
+
+.searchBtn {
+  border: none;
+  background-color: #232f3e;
+  color: white;
+  padding: 0.5rem 2rem;
+  border-radius: 1rem;
 }
