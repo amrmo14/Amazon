@@ -10,7 +10,10 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class UsersComponent implements OnInit, OnChanges {
   users!: IUser[];
-  constructor(private userServ: UsersService, private router: Router) {}
+  searchType: string = '';
+  constructor(private userServ: UsersService, private router: Router) {
+    console.log(this.searchType);
+  }
 
   ngOnInit(): void {
     this.getUsers();
@@ -33,11 +36,8 @@ export class UsersComponent implements OnInit, OnChanges {
     }
   }
 
-  getUser(query: any) {
-    query = isNaN(query) ? query : Number(query);
-    console.log('type of ', typeof query);
-    this.userServ.getUser(query).subscribe((data) => {
-      console.log(data);
+  getUser(search: string, query: any) {
+    this.userServ.getUser(search, query).subscribe((data) => {
       this.users = data;
     });
   }

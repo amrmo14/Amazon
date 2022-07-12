@@ -14,33 +14,26 @@ export class UsersService {
   deleteUser(userId: number) {
     return this.http.delete<IUser>(`http://localhost:3000/users/${userId}`);
   }
-  getUser(query?: any): Observable<IUser[]> {
-    if (isNaN(query) && query.includes('.com')) {
-      console.log('.com');
-      return this.http.get<IUser[]>(
-        `http://localhost:3000/users?email=${query}`
-      );
-    } else if (!isNaN(query)) {
-      console.log('National');
-      return this.http.get<IUser[]>(
-        `http://localhost:3000/users?national_id=${query}`
-      );
-    } else if (
-      isNaN(query) &&
-      !query.includes('.com') &&
-      typeof query != 'number' &&
-      query != ''
-    ) {
-      console.log('name');
-      return this.http.get<IUser[]>(
-        `http://localhost:3000/users?name=${query}`
-      );
-    } else if (query == '') {
-      console.log('enm');
-      return this.http.get<IUser[]>('http://localhost:3000/users');
-    } else {
-      console.log('return');
-      return this.http.get<IUser[]>('http://localhost:3000/users');
+  getUser(search: string, query?: any): Observable<IUser[]> {
+    switch (search) {
+      case 'name':
+        return this.http.get<IUser[]>(
+          `http://localhost:3000/users?name=${query}`
+        );
+        break;
+      case 'email':
+        return this.http.get<IUser[]>(
+          `http://localhost:3000/users?email=${query}`
+        );
+        break;
+      case 'nationalId':
+        return this.http.get<IUser[]>(
+          `http://localhost:3000/users?national_id=${query}`
+        );
+        break;
+      case 'all':
+      default:
+        return this.http.get<IUser[]>('http://localhost:3000/users');
     }
   }
   updateUser() {}
