@@ -7,7 +7,9 @@ export interface IUser {
   cardId?: string;
   status: string;
   mobile: number;
-  country: string;
-  city: string;
-  street: string;
+  address: {
+    country: string;
+    city: string;
+    street: string;
+  };
 }

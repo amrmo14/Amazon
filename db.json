@@ -8,21 +8,25 @@
       "password": "asd123asd",
       "status": "active",
       "mobile": 1012345674,
-      "country": "Qena",
-      "city": "Manshya",
-      "street": "12AB"
+      "address": {
+        "country": "Qena",
+        "city": "Manshya",
+        "street": "12AB"
+      }
     },
     {
       "id": 4,
       "national_id": 123456781,
-      "name": "Ali",
-      "email": "Ali@gmail.com",
-      "password": "asd123asd",
+      "name": "Ali Yasser",
+      "email": "AliYasser@gmail.com",
+      "password": "12356asd",
       "status": "active",
-      "mobile": 1012345675,
-      "country": "Qena",
-      "city": "Manshya",
-      "street": "12AB"
+      "mobile": "1026271970",
+      "address": {
+        "country": "Alex",
+        "city": "Miamy",
+        "street": "12 test"
+      }
     },
     {
       "id": 5,
@@ -32,9 +36,11 @@
       "password": "asd123asd",
       "status": "active",
       "mobile": 1012345676,
-      "country": "Qena",
-      "city": "Manshya",
-      "street": "12AB"
+      "address": {
+        "country": "Qena",
+        "city": "Manshya",
+        "street": "12AB"
+      }
     },
     {
       "id": 6,
@@ -44,9 +50,11 @@
       "password": "asd123asd",
       "status": "active",
       "mobile": 1012345677,
-      "country": "Qena",
-      "city": "Manshya",
-      "street": "12AB"
+      "address": {
+        "country": "Qena",
+        "city": "Manshya",
+        "street": "12AB"
+      }
     },
     {
       "id": 7,
@@ -55,9 +63,11 @@
       "email": "Samira@gmail.com",
       "password": "asd123asd",
       "status": "active",
-      "country": "Qena",
-      "city": "Manshya",
-      "street": "12AB",
+      "address": {
+        "country": "Qena",
+        "city": "Manshya",
+        "street": "12AB"
+      },
       "mobile": 1012345678
     }
   ]

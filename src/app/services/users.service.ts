@@ -38,7 +38,7 @@ export class UsersService {
         break;
       case 'address':
         return this.http.get<IUser[]>(
-          `http://localhost:3000/users?country=${query}`
+          `http://localhost:3000/users?address=${query}`
         );
         break;
       case 'all':
@@ -46,5 +46,10 @@ export class UsersService {
         return this.http.get<IUser[]>('http://localhost:3000/users');
     }
   }
-  updateUser() {}
+  findUserById(id: number) {
+    return this.http.get<IUser>(`http://localhost:3000/users/${id}`);
+  }
+  updateUser(user: IUser, id: number) {
+    return this.http.patch<IUser>(`http://localhost:3000/users/${id}`, user);
+  }
 }

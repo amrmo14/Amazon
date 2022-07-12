@@ -17,7 +17,7 @@
     <input
       type="text"
       class="search__input"
-      placeholder="Search by Name , Email or National Id"
+      placeholder="Search for a specific user"
       #searchValue
     />
     <button
@@ -58,8 +58,8 @@
         </p>
         <p class="card__status"><span>Mobile: </span> {{ user.mobile }}</p>
         <p class="card__status">
-          <span>Location: </span> {{ user.country }}, {{ user.city }} ,
-          {{ user.street }} st
+          <span>Location: </span> {{ user.address.country }},
+          {{ user.address.city }} , {{ user.address.street }} st
         </p>
         <p class="card__status p-0 m-0">
           <span>Status: </span> {{ user.status }}
