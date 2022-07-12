@@ -1,20 +1,16 @@
 {
   "users": [
     {
-      "id": 2,
-      "national_id": 123456789,
-      "name": "Omar",
-      "email": "Omar@gmail.com",
-      "password": "asd123asd",
-      "status": "active"
-    },
-    {
       "id": 3,
       "national_id": 123456780,
       "name": "Ahmed",
       "email": "Ahmed@gmail.com",
       "password": "asd123asd",
-      "status": "active"
+      "status": "active",
+      "mobile": 1012345674,
+      "country": "Qena",
+      "city": "Manshya",
+      "street": "12AB"
     },
     {
       "id": 4,
@@ -22,7 +18,11 @@
       "name": "Ali",
       "email": "Ali@gmail.com",
       "password": "asd123asd",
-      "status": "active"
+      "status": "active",
+      "mobile": 1012345675,
+      "country": "Qena",
+      "city": "Manshya",
+      "street": "12AB"
     },
     {
       "id": 5,
@@ -30,7 +30,11 @@
       "name": "Mariem",
       "email": "Mariem@gmail.com",
       "password": "asd123asd",
-      "status": "active"
+      "status": "active",
+      "mobile": 1012345676,
+      "country": "Qena",
+      "city": "Manshya",
+      "street": "12AB"
     },
     {
       "id": 6,
@@ -38,7 +42,11 @@
       "name": "Alaa",
       "email": "Alaa@gmail.com",
       "password": "asd123asd",
-      "status": "active"
+      "status": "active",
+      "mobile": 1012345677,
+      "country": "Qena",
+      "city": "Manshya",
+      "street": "12AB"
     },
     {
       "id": 7,
@@ -46,7 +54,11 @@
       "name": "Samira",
       "email": "Samira@gmail.com",
       "password": "asd123asd",
-      "status": "active"
+      "status": "active",
+      "country": "Qena",
+      "city": "Manshya",
+      "street": "12AB",
+      "mobile": 1012345678
     }
   ]
 }

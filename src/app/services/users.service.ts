@@ -31,6 +31,16 @@ export class UsersService {
           `http://localhost:3000/users?national_id=${query}`
         );
         break;
+      case 'mobile':
+        return this.http.get<IUser[]>(
+          `http://localhost:3000/users?mobile=${query}`
+        );
+        break;
+      case 'address':
+        return this.http.get<IUser[]>(
+          `http://localhost:3000/users?country=${query}`
+        );
+        break;
       case 'all':
       default:
         return this.http.get<IUser[]>('http://localhost:3000/users');

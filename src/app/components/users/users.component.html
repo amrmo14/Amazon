@@ -11,6 +11,8 @@
       <option value="name" selected>Name</option>
       <option value="nationalId">National ID</option>
       <option value="email">Email</option>
+      <option value="mobile">Mobile</option>
+      <option value="country">Address</option>
     </select>
     <input
       type="text"
@@ -34,9 +36,9 @@
       <span class="visually-hidden">Loading...</span>
     </div>
   </div>
-  <div class="row gx-5 gy-5 my-5 justify-content-sm-start">
+  <div class="row my-5 justify-content-center cardsContainer">
     <div
-      class="col-md-5 ms-auto d-flex flex-sm-row flex-column align-items-center justify-content-around customCard"
+      class="col-md-5 d-flex flex-sm-row flex-column align-items-center justify-content-around customCard"
       *ngFor="let user of users"
     >
       <div class="card__left py-4">
@@ -54,7 +56,14 @@
           <span>National Id: </span>
           {{ user.national_id }}
         </p>
-        <p class="card__status"><span>Status: </span> {{ user.status }}</p>
+        <p class="card__status"><span>Mobile: </span> {{ user.mobile }}</p>
+        <p class="card__status">
+          <span>Location: </span> {{ user.country }}, {{ user.city }} ,
+          {{ user.street }} st
+        </p>
+        <p class="card__status p-0 m-0">
+          <span>Status: </span> {{ user.status }}
+        </p>
       </div>
       <div class="card__right align-self-start">
         <div class="delete m-0 p-0" (click)="deleteUser(user.id)">

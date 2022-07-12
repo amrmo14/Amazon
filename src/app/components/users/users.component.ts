@@ -32,6 +32,7 @@ export class UsersComponent implements OnInit, OnChanges {
     if (Is_Deleted) {
       this.userServ.deleteUser(userId).subscribe((data) => {
         console.log(data);
+        this.getUsers();
       });
     }
   }
