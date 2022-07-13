@@ -1,0 +1,43 @@
+.backBtn:visited,
+.backBtn:link {
+  text-decoration: none;
+  color: #232f3e;
+  transition: all 0.3s ease;
+  background-color: #ff9900;
+  p {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+}
+.backBtn:hover,
+.backBtn:active {
+  color: #232f3e80;
+}
+i {
+  font-size: 1.5rem;
+  margin: 1rem;
+}
+.products__header {
+  font-size: 3rem;
+  font-weight: 300;
+  margin: 2rem 0;
+  span {
+    font-weight: bold;
+    color: #ff9900;
+  }
+}
+.addBtn:link,
+.addBtn:visited {
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  background-color: #232f3e;
+  padding: 0.6rem 1.5rem;
+  border-radius: 0.3rem;
+  transition: all 0.3s ease;
+}
+.addBtn:hover,
+.addBtn:active {
+  background-color: white;
+  color: #232f3e;
+}
