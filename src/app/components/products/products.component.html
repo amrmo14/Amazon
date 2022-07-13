@@ -1,1 +1,26 @@
-<p>products works!</p>
+<a routerLink="" class="d-flex align-items-center backBtn">
+    <i class="fa-solid fa-backward"></i>
+    <p class="p-0 m-0">Back</p>
+  </a>
+
+  <div class="container">
+    <h1 class="products__header"><span>Amazon</span> products</h1>
+    <div class="row">
+      <a href="" class="addBtn col-2" routerLink="/addProduct" routerLinkActive="active">Add New product</a>
+    <form class="d-flex col-10" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" #prdName>
+      <button class="btn btn-outline-success" type="submit" (click)="search(prdName.value)">Search</button>
+    </form>
+    </div>
+    
+    <div class="my-3">
+      <label for="prdCat" class="my-1">Select Category:</label>
+      <select name="cat" id="prdCat" class="form-control" [(ngModel)]="selectedCatID">
+          <option value="0">All</option>
+          <option *ngFor="let cat of catlList" [value]="cat.id">{{cat.name}}</option>
+      </select>
+  </div>
+  <app-product [recievedCatID]="selectedCatID" ></app-product>
+  
+    
+  </div>
