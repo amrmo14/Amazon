@@ -1,0 +1,92 @@
+<form #form ngNativeValidate class="container" *ngIf="currPrdID==0">
+    <div class="mb-2">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" name="name" pattern="[A-Za-z]{3,10}" #nameInput="ngModel"
+        [(ngModel)]="newPrd.name" [class.is-valid]="nameInput.valid" [class.is-invalid]="nameInput.invalid" required>
+    </div>
+
+
+    <div class="mb-2">
+        <label for="price" class="form-label">Price</label>
+        <input type="number" class="form-control" id="price" name="price" [(ngModel)]="newPrd.Price">
+    </div>
+
+
+    <div class="mb-2">
+        <label for="Quantity" class="form-label">Quantity</label>
+        <input type="number" class="form-control" id="Quantity" name="Quantity" [(ngModel)]="newPrd.Quantity">
+    </div>
+
+
+    <div class="mb-2">
+        <label for="Img" class="form-label">ImgURL</label>
+        <input type="url" class="form-control" id="Img" name="Img" [(ngModel)]="newPrd.Img" required>
+    </div>
+
+    <div class="mb-2">
+        <label for="cadID" class="form-label">Cateogry</label>
+
+        <select name="cadID" id="cadID" class="form-control" [(ngModel)]="newPrd.CateogryID" required>
+            <option selected disabled>Select Cateogry</option>
+            <option *ngFor="let cat of catlList" [value]="cat.id">{{cat.name}}</option>
+        </select>
+    </div>
+
+    <div class="mb-2">
+        <label for="Brand" class="form-label">Brand</label>
+        <input type="text" class="form-control" id="Brand" name="Brand" [(ngModel)]="newPrd.Brand" required>
+    </div>
+    
+    <div class="mb-2">
+        <label for="description" class="form-label">Description</label>
+        <textarea  class="form-control" rows="4" cols="50" id="description" name="description" [(ngModel)]="newPrd.Description" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary my-3" (click)="form.checkValidity()? addPrd():0">Submit</button>
+</form>
+
+
+<form #form ngNativeValidate class="container" *ngIf="currPrdID>0">
+    <div class="mb-2">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" name="name" pattern="[A-Za-z]{3,10}" #nameInput="ngModel"
+        [(ngModel)]="newPrd.name" [class.is-valid]="nameInput.valid" [class.is-invalid]="nameInput.invalid" required>
+    </div>
+
+
+    <div class="mb-2">
+        <label for="price" class="form-label">Price</label>
+        <input type="number" class="form-control" id="price" name="price" [(ngModel)]="newPrd.Price">
+    </div>
+
+
+    <div class="mb-2">
+        <label for="Quantity" class="form-label">Quantity</label>
+        <input type="number" class="form-control" id="Quantity" name="Quantity" [(ngModel)]="newPrd.Quantity">
+    </div>
+
+
+    <div class="mb-2">
+        <label for="Img" class="form-label">ImgURL</label>
+        <input type="url" class="form-control" id="Img" name="Img" [(ngModel)]="newPrd.Img" required>
+    </div>
+
+    <div class="mb-2">
+        <label for="cadID" class="form-label">Cateogry</label>
+
+        <select name="cadID" id="cadID" class="form-control" [(ngModel)]="newPrd.CateogryID" required>
+            <option selected disabled>Select Cateogry</option>
+            <option *ngFor="let cat of catlList" [value]="cat.id">{{cat.name}}</option>
+        </select>
+    </div>
+
+    <div class="mb-2">
+        <label for="Brand" class="form-label">Brand</label>
+        <input type="text" class="form-control" id="Brand" name="Brand" [(ngModel)]="newPrd.Brand" required>
+    </div>
+    
+    <div class="mb-2">
+        <label for="description" class="form-label">Description</label>
+        <textarea  class="form-control" rows="4" cols="50" id="description" name="description" [(ngModel)]="newPrd.Description" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary my-3"  (click)="form.checkValidity()? updatePrd(newPrd.id,newPrd):0">Submit</button>
+</form>
