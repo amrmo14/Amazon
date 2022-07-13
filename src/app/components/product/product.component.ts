@@ -12,69 +12,81 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class ProductComponent implements OnInit, OnChanges, OnDestroy {
   prdList: Iproduct[] | undefined;
-  prdListOfCat: Iproduct[] = []
-  // prdListOfCat: any[] = []
+  // prdListOfCat: Iproduct[] = []
+  prdListOfCat: any[] = []
   @Input() recievedCatID: number = 0;
   selectedCatID: number = 0;
-  private Subscribtion:Subscription[]= [];
+  product: any;
+  cateogry: any;
+  private Subscribtion: Subscription[] = [];
 
-  constructor( private router: Router, private prdAPIService: PrdApiService,
-    private db : AngularFirestore ) {
+  constructor(private router: Router, private prdAPIService: PrdApiService,
+    private db: AngularFirestore) {
 
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    let sub=this.prdAPIService.getProductsByCatID(this.recievedCatID).
-      subscribe(prdList => {
-        if(this.recievedCatID==0){
-          this.prdAPIService.getAllProducts().
-      subscribe(prdList => {
-        this.prdListOfCat = prdList
-      });
+    let sub = this.db.collection("cateogry").get().
+      subscribe(docOfCat => {
+        this.prdListOfCat = [];
+
+        if (this.recievedCatID == 0) {
+          this.db.collection("products").get().subscribe(doc =>
+            doc.docs.forEach(product => {
+            this.product=product.data();
+            this.product.id = product.id;
+              console.log(this.product)
+              this.prdListOfCat.push(this.product)
+            }
+            ))
         }
-        else{
-          this.prdListOfCat = prdList
-          // this.db.collection("products").get().subscribe(doc=>
-          //   doc.docs.forEach(categoryList=>
-          //     this.prdListOfCat.push(categoryList.data())))
+        else {
+          docOfCat.docs.forEach(cateogry => {
+            this.cateogry = cateogry.data()
+            if (this.cateogry.id == this.recievedCatID) {
+              this.db.collection("products").get().subscribe(doc => {
+                doc.docs.forEach(product => {
+                  this.product = product.data();
+                  if (this.product.CateogryID == this.recievedCatID) {
+                    this.product.id = product.id;
+                    // console.log(product.id)
+                    this.prdListOfCat.push(this.product)
+                  }
+                })
+              }
+              )
+            }
+          })
+          // this.prdListOfCat = prdList
+      
         }
-       
       });
-      this.Subscribtion.push(sub);
-     
+    this.Subscribtion.push(sub);
+
   }
 
-  
+
 
   ngOnInit(): void {
-    this.prdAPIService.getAllProducts().
-      subscribe(prdList => {
-        this.prdListOfCat = prdList
-      });
+  
 
   }
 
-  openPrdDetails(prdID: number) {
+  openPrdDetails(prdID: any) {
     this.router.navigate(["products", prdID])
   }
 
-  editPrd(prdID: number){
+  editPrd(prdID: any) {
     this.router.navigate(["addProduct", prdID])
   }
-  deletePrd(prd: number){
-    let sure = confirm("Are you sure?")
-    if(sure){
-      this.prdAPIService.deleteProudcut(prd).subscribe(prdlist =>{
-        this.prdAPIService.getAllProducts().
-        subscribe(prdList => {
-          this.prdListOfCat = prdList
-      })}
-      );
-      
-  }}
+  deletePrd(prd: any) {
+    if (confirm('Delete?')) {
+      this.db.collection('products').doc(prd).delete(); 
+  }
+  }
 
   ngOnDestroy(): void {
-    for(let sub of this.Subscribtion){
+    for (let sub of this.Subscribtion) {
       sub.unsubscribe();
     }
   }
