@@ -1,3 +1,6 @@
+html {
+  font-size: 10px;
+}
 .img-box {
   height: 100%;
   width: 100%;
@@ -13,7 +16,7 @@
 }
 
 .dashboard__right {
-  font-family: Roboto;
+  font-family: Rubik;
   h2 {
     font-size: 3rem;
     margin: 3rem 0;
@@ -35,18 +38,21 @@
     outline: none;
     text-transform: uppercase;
     margin: 1rem 0;
-
+    font-weight: 300;
     font-size: 1.5rem;
     border-radius: 0.5rem;
     transition: all 0.3s ease;
   }
   .customBtn:hover {
-    box-shadow: 0.1rem 0.1rem 0.3rem rgba(0, 0, 0, 0.593);
+    box-shadow: 0.08rem 0.01rem 0.25rem #232f3e31;
     color: #ff9900;
   }
 }
 
 @media only screen and (max-width: 425px) {
+  html {
+    font-size: 7px;
+  }
   .img-box {
     img {
       height: 20rem;

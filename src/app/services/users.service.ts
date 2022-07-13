@@ -14,32 +14,42 @@ export class UsersService {
   deleteUser(userId: number) {
     return this.http.delete<IUser>(`http://localhost:3000/users/${userId}`);
   }
-  getUser(query?: any) {
-    if (isNaN(query) && query.includes('.com')) {
-      console.log('.com');
-      return this.http.get<IUser[] | IUser>(
-        `http://localhost:3000/users?email=${query}`
-      );
-    } else if (query.length === 9 && typeof query === 'number') {
-      console.log('National');
-      return this.http.get<IUser>(
-        `http://localhost:3000/users?national_id=${query}`
-      );
-    } else if (
-      isNaN(query) &&
-      !query.includes('.com') &&
-      typeof query != 'number' &&
-      query != ''
-    ) {
-      console.log('name');
-      return this.http.get<IUser[]>(
-        `http://localhost:3000/users?name=${query}`
-      );
-    } else if (query == '') {
-      console.log('enm');
-      return this.http.get<IUser[]>('http://localhost:3000/users');
+  getUser(search: string, query?: any): Observable<IUser[]> {
+    switch (search) {
+      case 'name':
+        return this.http.get<IUser[]>(
+          `http://localhost:3000/users?name=${query}`
+        );
+        break;
+      case 'email':
+        return this.http.get<IUser[]>(
+          `http://localhost:3000/users?email=${query}`
+        );
+        break;
+      case 'nationalId':
+        return this.http.get<IUser[]>(
+          `http://localhost:3000/users?national_id=${query}`
+        );
+        break;
+      case 'mobile':
+        return this.http.get<IUser[]>(
+          `http://localhost:3000/users?mobile=${query}`
+        );
+        break;
+      case 'address':
+        return this.http.get<IUser[]>(
+          `http://localhost:3000/users?address=${query}`
+        );
+        break;
+      case 'all':
+      default:
+        return this.http.get<IUser[]>('http://localhost:3000/users');
     }
-    console.log('return');
-    return this.http.get<IUser[]>('http://localhost:3000/users');
+  }
+  findUserById(id: number) {
+    return this.http.get<IUser>(`http://localhost:3000/users/${id}`);
+  }
+  updateUser(user: IUser, id: number) {
+    return this.http.patch<IUser>(`http://localhost:3000/users/${id}`, user);
   }
 }
