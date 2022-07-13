@@ -14,38 +14,54 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-    // catlList: any[]=[];
-    catlList: ICategory[]=[];
+    catlList: any[]=[];
+    // catlList: ICategory[]=[];
     selectedCatID: number = 0;
-    searchList: Iproduct[]=[];
+    // searchList: Iproduct[]=[];
+    searchList: any[]=[];
 
     constructor(private categoryService:CategoryService,private router: Router,
       private loc: Location, private actRout: ActivatedRoute, private prdAPIService: PrdApiService,
       private db : AngularFirestore ) { 
-      this.categoryService.getAllCategory().
-      subscribe(categoryList=>{
-       this.catlList=categoryList;
+    //   this.categoryService.getAllCategory().
+    //   subscribe(categoryList=>{
+    //    this.catlList=categoryList;
         
-     });
+    //  });
 
-    // this.db.collection("cateogry").get().subscribe(doc=>
-    //         doc.docs.forEach(categoryList=>
-    //           this.catlList.push(categoryList.data())))
+    this.db.collection("cateogry").get().subscribe(doc=>
+            doc.docs.forEach(category=>
+              this.catlList.push(category.data())))
       
  
    }
 
   ngOnInit(): void {
-    this.prdAPIService.getAllProducts().subscribe(prdlist =>{
-      this.searchList = prdlist;
-    })
+    // this.prdAPIService.getAllProducts().subscribe(prdlist =>{
+    //   this.searchList = prdlist;
+    // })
+
+    this.db.collection("products").get().subscribe(doc=>
+      {
+        this.searchList=[];
+        doc.docs.forEach(product=>{
+          this.searchList.push(product)
+          // console.log(product.id)
+          
+        }
+        
+         )
+        //  console.log(this.searchList)
+      }
+    )
+       
   }
 
   search(pprdName:string){
     
     let founded = this.searchList.find(prd=>
-      prd.name.toLowerCase() == pprdName.toLowerCase())
-    // let founded = this.searchList[1]
+      prd.data().name.toLowerCase() == pprdName.toLowerCase())
+  
 
     
     if(founded){
