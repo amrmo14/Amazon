@@ -1,0 +1,29 @@
+<div class="row p-4 justify-content-around text-center">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Product Id</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col">Details</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let prd of prdListOfCat;let i=index">
+                <tr>
+                    <td >{{prd.id}}</td>
+                    <td>{{prd.name}}</td>
+                    <td>{{prd.Quantity}}</td>
+                    <td>{{prd.Price | currency}}</td>
+                    <td><button class="btn btn-warning m-1" (click)="openPrdDetails(prd.id)">Details</button></td>
+                    <td> <button class="btn btn-primary m-1" (click)="editPrd(prd.id)">Edit</button></td>
+                    <td> <button class="btn btn-danger m-1" (click)="deletePrd(prd.id)">Delete</button></td>
+                </tr>
+            </ng-container>
+
+        </tbody>
+    </table>
+</div>
