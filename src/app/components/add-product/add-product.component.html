@@ -45,7 +45,7 @@
 </form>
 
 
-<form #form ngNativeValidate class="container" *ngIf="currPrdID>0">
+<form #form ngNativeValidate class="container" *ngIf="currPrdID!=0">
     <div class="mb-2">
         <label for="name" class="form-label">Name</label>
         <input type="text" class="form-control" id="name" name="name" pattern="[A-Za-z]{3,10}" #nameInput="ngModel"

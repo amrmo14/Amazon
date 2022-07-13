@@ -12,9 +12,9 @@
             </tr>
         </thead>
         <tbody>
-            <ng-container *ngFor="let prd of prdListOfCat;let i=index">
+            <ng-container *ngFor="let prd of prdListOfCat ;let i=index">
                 <tr>
-                    <td >{{prd.id}}</td>
+                    <td>{{prd.id}}</td>
                     <td>{{prd.name}}</td>
                     <td>{{prd.Quantity}}</td>
                     <td>{{prd.Price | currency}}</td>
