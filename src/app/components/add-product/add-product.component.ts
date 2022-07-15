@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ICategory } from 'src/app/models/icategory';
 import { Iproduct } from 'src/app/models/iproduct';
@@ -16,6 +16,8 @@ export class AddProductComponent implements OnInit {
   newPrd:Iproduct={} as Iproduct;
   currPrdID: any;
   product: any;
+  @ViewChild("form") form!:ElementRef;
+  show: boolean = false;
   constructor(private categoryService:CategoryService,
     private prdApiservice:PrdApiService ,
     private router: Router,
@@ -65,7 +67,10 @@ updatePrd(PrdID:any,prd:Iproduct){
   // })
 
   this.db.collection('products').doc(PrdID).update(prd);
-
+  this.show=true;
+  setTimeout(()=>{
+    this.show=false;
+    this.router.navigate(['/products'])},1000) 
 }
 
  addPrd(){
@@ -79,7 +84,12 @@ updatePrd(PrdID:any,prd:Iproduct){
   // })
 
   this.db.collection('products').add(this.newPrd)
-  this.router.navigate(['/products'])
+  this.show=true;
+  setTimeout(()=>{
+    this.show=false;
+    this.form.nativeElement.reset()},2000)
+  
+  
 }
 
 }

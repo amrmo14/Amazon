@@ -7,12 +7,12 @@
   <div class="search">
     <select name="" id="" [(ngModel)]="searchType">
       <option value="" disabled>Search Type</option>
-      <option value="all">All</option>
-      <option value="name" selected>Name</option>
-      <option value="nationalId">National ID</option>
+      <!-- <option value="all">All</option> -->
+      <option value="name" >Name</option>
+      <option value="national_id">National ID</option>
       <option value="email">Email</option>
       <option value="mobile">Mobile</option>
-      <option value="country">Address</option>
+      <!-- <option value="country">Address</option> -->
     </select>
     <input
       type="text"
@@ -21,8 +21,8 @@
       #searchValue
     />
     <button
-      class="searchBtn"
-      (click)="getUser(searchType, searchValue.value); searchValue.value = ''"
+      class="searchBtn" [disabled]="searchType==''"
+      (click)="getUser(searchType, searchValue.value);"
     >
       Search
     </button>
