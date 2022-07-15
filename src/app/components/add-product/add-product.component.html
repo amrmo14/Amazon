@@ -2,19 +2,19 @@
     <div class="mb-2">
         <label for="name" class="form-label">Name</label>
         <input type="text" class="form-control" id="name" name="name"  #nameInput="ngModel"
-        [(ngModel)]="newPrd.name" [class.is-valid]="nameInput.valid" [class.is-invalid]="nameInput.invalid" required>
+        [(ngModel)]="newPrd.name"  required>
     </div>
 
 
     <div class="mb-2">
         <label for="price" class="form-label">Price</label>
-        <input type="number" class="form-control" id="price" name="price" [(ngModel)]="newPrd.Price">
+        <input type="number" class="form-control" id="price" name="price" [(ngModel)]="newPrd.Price" required>
     </div>
 
 
     <div class="mb-2">
         <label for="Quantity" class="form-label">Quantity</label>
-        <input type="number" class="form-control" id="Quantity" name="Quantity" [(ngModel)]="newPrd.Quantity">
+        <input type="number" class="form-control" id="Quantity" name="Quantity" [(ngModel)]="newPrd.Quantity" required>
     </div>
 
 
@@ -41,7 +41,11 @@
         <label for="description" class="form-label">Description</label>
         <textarea  class="form-control" rows="4" cols="50" id="description" name="description" [(ngModel)]="newPrd.Description" required></textarea>
     </div>
+    <div *ngIf="show" class="alert alert-primary" role="alert">
+        product added
+       </div>
     <button type="submit" class="btn btn-primary my-3" (click)="form.checkValidity()? addPrd():0">Submit</button>
+    
 </form>
 
 
@@ -88,5 +92,9 @@
         <label for="description" class="form-label">Description</label>
         <textarea  class="form-control" rows="4" cols="50" id="description" name="description" [(ngModel)]="newPrd.Description" required></textarea>
     </div>
+    <div *ngIf="show" class="alert alert-primary" role="alert">
+        product updated
+      </div>
     <button type="submit" class="btn btn-primary my-3"  (click)="form.checkValidity()? updatePrd(newPrd.id,newPrd):0">Submit</button>
+    
 </form>

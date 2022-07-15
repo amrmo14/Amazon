@@ -1,7 +1,7 @@
 <div>
     <form class="d-flex col-11" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"  #prdName >
-        <button class="btn btn-outline-success" type="submit" (click)="search(prdName.value)" >Search</button>
+        <button class="searchBtn" type="submit" (click)="search(prdName.value)" >Search</button>
       </form>
 </div>
 
@@ -25,9 +25,13 @@
                     <td>{{prd.id}}</td>
                     <td>{{prd.name}}</td>
                     <td>{{prd.Quantity}}</td>
+<<<<<<< HEAD
 
                     <td >{{prd.Price | currency: 'EGP':'code'}}</td>
 
+=======
+                    <td >{{prd.Price | currency: 'EGP':'code'}}</td>
+>>>>>>> main
                     <td><button class="btn btn-warning m-1" (click)="openPrdDetails(prd.id)">Details</button></td>
                     <td> <button class="btn btn-primary m-1" (click)="editPrd(prd.id)">Edit</button></td>
                     <td> <button class="btn btn-danger m-1" (click)="deletePrd(prd.id)">Delete</button></td>

@@ -1,2 +1,12 @@
+.searchBtn {
+    border: none;
+    background-color: #232f3e;
+    color: white;
+    padding: 0.5rem 2rem;
+    border-radius: 0.3rem;
+  }
 
- 
+  .searchBtn:hover {
+  background-color: white;
+  color: #232f3e;
+}

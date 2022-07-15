@@ -34,8 +34,8 @@ export class ProductComponent implements OnInit, OnChanges, OnDestroy {
         if (this.recievedCatID == 0) {
           this.db.collection("products").get().subscribe(doc =>
             doc.docs.forEach(product => {
-            this.product=product.data();
-            this.product.id = product.id;
+              this.product = product.data();
+              this.product.id = product.id;
               console.log(this.product)
               this.prdListOfCat.push(this.product)
             }
@@ -59,7 +59,7 @@ export class ProductComponent implements OnInit, OnChanges, OnDestroy {
             }
           })
           // this.prdListOfCat = prdList
-      
+
         }
       });
     this.Subscribtion.push(sub);
@@ -72,29 +72,30 @@ export class ProductComponent implements OnInit, OnChanges, OnDestroy {
     this.db.collection("products").get().subscribe(doc => {
       this.searchList = [];
       doc.docs.forEach(product => {
-        this.searchList.push(product)})})
+        this.searchList.push(product)
+      })
+    })
 
   }
 
   search(pprdName: string) {
     var regex = new RegExp(pprdName.toLowerCase(), 'g');
     let founded = this.searchList.filter(prd =>
-      prd.data().name.toLowerCase().match(regex))
-
+      prd.data().name.toLowerCase().match(regex));
     if (founded) {
-      // this.router.navigate(["/products",this.searchList[this.searchList.indexOf(founded)].id])
+
       this.prdListOfCat = [];
       founded.forEach(product => {
-        this.product=product.data();
+        this.product = product.data();
         this.product.id = product.id;
-        this.prdListOfCat=[...this.prdListOfCat,this.product]
+        this.prdListOfCat = [...this.prdListOfCat, this.product]
         console.log(this.prdListOfCat)
       })
     }
     else {
       alert("Not found")
     }
-
+    
   }
 
   openPrdDetails(prdID: any) {
@@ -106,8 +107,10 @@ export class ProductComponent implements OnInit, OnChanges, OnDestroy {
   }
   deletePrd(prd: any) {
     if (confirm('Delete?')) {
-      this.db.collection('products').doc(prd).delete(); 
-  }
+      this.product = this.prdListOfCat.find(product => prd == product.id);
+      this.db.collection('products').doc(prd).delete();
+      this.prdListOfCat.splice(this.prdListOfCat.indexOf(this.product), 1)
+    }
   }
 
   ngOnDestroy(): void {
