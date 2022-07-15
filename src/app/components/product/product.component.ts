@@ -18,6 +18,7 @@ export class ProductComponent implements OnInit, OnChanges, OnDestroy {
   selectedCatID: number = 0;
   product: any;
   cateogry: any;
+  searchList: any[] = [];
   private Subscribtion: Subscription[] = [];
 
   constructor(private router: Router, private prdAPIService: PrdApiService,
@@ -68,7 +69,31 @@ export class ProductComponent implements OnInit, OnChanges, OnDestroy {
 
 
   ngOnInit(): void {
-  
+    this.db.collection("products").get().subscribe(doc => {
+      this.searchList = [];
+      doc.docs.forEach(product => {
+        this.searchList.push(product)})})
+
+  }
+
+  search(pprdName: string) {
+    var regex = new RegExp(pprdName.toLowerCase(), 'g');
+    let founded = this.searchList.filter(prd =>
+      prd.data().name.toLowerCase().match(regex))
+
+    if (founded) {
+      // this.router.navigate(["/products",this.searchList[this.searchList.indexOf(founded)].id])
+      this.prdListOfCat = [];
+      founded.forEach(product => {
+        this.product=product.data();
+        this.product.id = product.id;
+        this.prdListOfCat=[...this.prdListOfCat,this.product]
+        console.log(this.prdListOfCat)
+      })
+    }
+    else {
+      alert("Not found")
+    }
 
   }
 

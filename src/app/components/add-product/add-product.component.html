@@ -1,7 +1,7 @@
 <form #form ngNativeValidate class="container" *ngIf="currPrdID==0">
     <div class="mb-2">
         <label for="name" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name" name="name" pattern="[A-Za-z]{3,10}" #nameInput="ngModel"
+        <input type="text" class="form-control" id="name" name="name"  #nameInput="ngModel"
         [(ngModel)]="newPrd.name" [class.is-valid]="nameInput.valid" [class.is-invalid]="nameInput.invalid" required>
     </div>
 
@@ -48,7 +48,7 @@
 <form #form ngNativeValidate class="container" *ngIf="currPrdID!=0">
     <div class="mb-2">
         <label for="name" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name" name="name" pattern="[A-Za-z]{3,10}" #nameInput="ngModel"
+        <input type="text" class="form-control" id="name" name="name"  #nameInput="ngModel"
         [(ngModel)]="newPrd.name" [class.is-valid]="nameInput.valid" [class.is-invalid]="nameInput.invalid" required>
     </div>
 
