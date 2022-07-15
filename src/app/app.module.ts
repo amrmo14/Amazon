@@ -10,6 +10,10 @@ import { SellersComponent } from './components/sellers/sellers.component';
 import { ProductsComponent } from './components/products/products.component';
 import { UsersService } from './services/users.service';
 import { HttpClientModule } from '@angular/common/http';
+
+import { EditUserComponent } from './components/edit-user/edit-user.component';
+
+
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { ProductComponent } from './components/product/product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -31,6 +35,7 @@ const firebaseConfig = {
   measurementId: "G-4VFHKVQL68"
 };
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,19 +46,26 @@ const firebaseConfig = {
     SellersComponent,
     ProductsComponent,
     AddProductComponent,
-    ProductComponent,
+    EditUserComponent,
     ProductDetailsComponent,
+    ProductComponent,
   ],
+
   imports: [BrowserModule,
+
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    
+
+
     AngularFirestoreModule,
     AngularFireAuthModule, 
     AngularFireStorageModule,
     AngularFireModule.initializeApp(firebaseConfig)
    
+
   ],
   providers: [UsersService],
   bootstrap: [AppComponent],

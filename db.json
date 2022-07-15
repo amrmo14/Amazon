@@ -1,92 +1,74 @@
 {
   "users": [
     {
-      "id": 1,
-      "national_id": 123456789,
-      "name": "Omar",
-      "email": "Omar@gmail.com",
-      "password": "asd123asd",
-      "status": "unactive"
-    },
-    {
-      "id": 2,
-      "national_id": 123456789,
-      "name": "Omar",
-      "email": "Omar@gmail.com",
-      "password": "asd123asd",
-      "status": "active"
-    },
-    {
       "id": 3,
-      "national_id": 123456789,
-      "name": "Omar",
-      "email": "Omar@gmail.com",
+      "national_id": 123456780,
+      "name": "Ahmed",
+      "email": "Ahmed@gmail.com",
       "password": "asd123asd",
-      "status": "active"
+      "status": "active",
+      "mobile": 1012345674,
+      "address": {
+        "country": "Qena",
+        "city": "Manshya",
+        "street": "12AB"
+      }
     },
     {
       "id": 4,
-      "national_id": 123456789,
-      "name": "Omar",
-      "email": "Omar@gmail.com",
-      "password": "asd123asd",
-      "status": "active"
+      "national_id": 123456781,
+      "name": "Ali Yasser",
+      "email": "AliYasser@gmail.com",
+      "password": "12356asd",
+      "status": "active",
+      "mobile": "1026271970",
+      "address": {
+        "country": "Alex",
+        "city": "Miamy",
+        "street": "12 test"
+      }
     },
     {
       "id": 5,
-      "national_id": 123456789,
-      "name": "Omar",
-      "email": "Omar@gmail.com",
+      "national_id": 123456782,
+      "name": "Mariem",
+      "email": "Mariem@gmail.com",
       "password": "asd123asd",
-      "status": "active"
+      "status": "active",
+      "mobile": 1012345676,
+      "address": {
+        "country": "Qena",
+        "city": "Manshya",
+        "street": "12AB"
+      }
     },
     {
       "id": 6,
-      "national_id": 123456789,
-      "name": "Omar",
-      "email": "Omar@gmail.com",
+      "national_id": 123456783,
+      "name": "Alaa",
+      "email": "Alaa@gmail.com",
       "password": "asd123asd",
-      "status": "active"
+      "status": "active",
+      "mobile": 1012345677,
+      "address": {
+        "country": "Qena",
+        "city": "Manshya",
+        "street": "12AB"
+      }
     },
     {
       "id": 7,
-      "national_id": 123456789,
-      "name": "Omar",
-      "email": "Omar@gmail.com",
+      "national_id": 123456784,
+      "name": "Samira",
+      "email": "Samira@gmail.com",
       "password": "asd123asd",
-      "status": "active"
-    },
-    {
-      "id": 8,
-      "national_id": 123456789,
-      "name": "Omar",
-      "email": "Omar@gmail.com",
-      "password": "asd123asd",
-      "status": "active"
-    },
-    {
-      "id": 9,
-      "national_id": 123456789,
-      "name": "Omar",
-      "email": "Omar@gmail.com",
-      "password": "asd123asd",
-      "status": "active"
-    },
-    {
-      "id": 10,
-      "national_id": 123456789,
-      "name": "Omar",
-      "email": "Omar@gmail.com",
-      "password": "asd123asd",
-      "status": "active"
-    },
-    {
-      "id": 11,
-      "national_id": 123456789,
-      "name": "Omar",
-      "email": "Omar@gmail.com",
-      "password": "asd123asd",
-      "status": "active"
+      "status": "active",
+      "address": {
+        "country": "Qena",
+        "city": "Manshya",
+        "street": "12AB"
+      },
+      "mobile": 1012345678
     }
   ]
 }

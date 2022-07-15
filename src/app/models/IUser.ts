@@ -6,4 +6,10 @@ export interface IUser {
   password: string;
   cardId?: string;
   status: string;
+  mobile: number;
+  address: {
+    country: string;
+    city: string;
+    street: string;
+  };
 }

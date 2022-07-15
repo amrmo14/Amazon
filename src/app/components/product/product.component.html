@@ -25,7 +25,9 @@
                     <td>{{prd.id}}</td>
                     <td>{{prd.name}}</td>
                     <td>{{prd.Quantity}}</td>
+
                     <td >{{prd.Price | currency: 'EGP':'code'}}</td>
+
                     <td><button class="btn btn-warning m-1" (click)="openPrdDetails(prd.id)">Details</button></td>
                     <td> <button class="btn btn-primary m-1" (click)="editPrd(prd.id)">Edit</button></td>
                     <td> <button class="btn btn-danger m-1" (click)="deletePrd(prd.id)">Delete</button></td>

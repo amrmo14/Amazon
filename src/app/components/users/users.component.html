@@ -4,24 +4,46 @@
 </a>
 <div class="container">
   <h1 class="users__header"><span>Amazon</span> Users</h1>
-  <a href="" class="addBtn" (click)="addNewUser()">Add New User</a>
-  <div class="row gx-5 gy-5 my-5">
+  <div class="search">
+    <select name="" id="" [(ngModel)]="searchType">
+      <option value="" disabled>Search Type</option>
+      <option value="all">All</option>
+      <option value="name" selected>Name</option>
+      <option value="nationalId">National ID</option>
+      <option value="email">Email</option>
+      <option value="mobile">Mobile</option>
+      <option value="country">Address</option>
+    </select>
+    <input
+      type="text"
+      class="search__input"
+      placeholder="Search for a specific user"
+      #searchValue
+    />
+    <button
+      class="searchBtn"
+      (click)="getUser(searchType, searchValue.value); searchValue.value = ''"
+    >
+      Search
+    </button>
+  </div>
+  <div
+    class="text-center d-flex align-items-center justify-content-center"
+    style="height: 20rem"
+    *ngIf="!users"
+  >
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  <div class="row my-5 justify-content-center cardsContainer">
     <div
-      class="col-md-5 ms-auto d-flex align-items-center customCard"
+      class="col-md-5 d-flex flex-sm-row flex-column align-items-center justify-content-around customCard"
       *ngFor="let user of users"
     >
-      <div class="card__left">
+      <div class="card__left py-4">
         <div>
-          <img
-            src="../../../assets/active.png"
-            alt=""
-            *ngIf="user.status == 'active'"
-          />
-          <img
-            src="../../../assets/unactive.png"
-            alt=""
-            *ngIf="user.status == 'unactive'"
-          />
+          <img src="../../../assets/amazon_mobile.png" alt="" />
         </div>
       </div>
       <div class="card__center">
@@ -34,9 +56,23 @@
           <span>National Id: </span>
           {{ user.national_id }}
         </p>
-        <p class="card__status"><span>Status: </span> {{ user.status }}</p>
+        <p class="card__status"><span>Mobile: </span> {{ user.mobile }}</p>
+        <p class="card__status">
+          <span>Location: </span> {{ user.address.country }},
+          {{ user.address.city }} , {{ user.address.street }} st
+        </p>
+        <p class="card__status p-0 m-0">
+          <span>Status: </span> {{ user.status }}
+        </p>
       </div>
-      <div class="card__right"></div>
+      <div class="card__right align-self-start">
+        <div class="delete m-0 p-0" (click)="deleteUser(user.id)">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="edit m-0 p-0" (click)="editUser(user.id)">
+          <i class="fa-solid fa-pen-to-square"></i>
+        </div>
+      </div>
     </div>
   </div>
 </div>
