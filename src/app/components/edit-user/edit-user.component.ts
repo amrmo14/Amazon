@@ -91,6 +91,7 @@ export class EditUserComponent implements OnInit {
     //   });
     console.log(this.myForm.value)
       this.db.collection('users').doc(userID).update(user);
+      // this.db.collection('sellers').add(user);
       this.show=true;
       
       setTimeout(()=>{

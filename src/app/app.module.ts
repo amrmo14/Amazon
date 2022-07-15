@@ -24,6 +24,7 @@ import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireModule } from '@angular/fire/compat';
+import { EditSellerComponent } from './components/edit-seller/edit-seller.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCpz7N83mSb4Rop6a6WvgVb3DZo8bCcZ8E",
@@ -49,6 +50,7 @@ const firebaseConfig = {
     EditUserComponent,
     ProductDetailsComponent,
     ProductComponent,
+    EditSellerComponent,
   ],
 
   imports: [BrowserModule,

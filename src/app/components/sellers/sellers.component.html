@@ -1,1 +1,78 @@
-<p>sellers works!</p>
+<a routerLink="" class="d-flex align-items-center backBtn">
+    <i class="fa-solid fa-backward"></i>
+    <p class="p-0 m-0">Back</p>
+  </a>
+  <div class="container">
+    <h1 class="users__header"><span>Amazon</span> Sellers</h1>
+    <div class="search">
+      <select name="" id="" [(ngModel)]="searchType">
+        <option value="" disabled>Search Type</option>
+        <!-- <option value="all">All</option> -->
+        <option value="name" >Name</option>
+        <option value="national_id">National ID</option>
+        <option value="email">Email</option>
+        <option value="mobile">Mobile</option>
+        <!-- <option value="country">Address</option> -->
+      </select>
+      <input
+        type="text"
+        class="search__input"
+        placeholder="Search for a specific seller"
+        #searchValue
+      />
+      <button
+        class="searchBtn" [disabled]="searchType==''"
+        (click)="getseller(searchType, searchValue.value);"
+      >
+        Search
+      </button>
+    </div>
+    <div
+      class="text-center d-flex align-items-center justify-content-center"
+      style="height: 20rem"
+      *ngIf="!sellers"
+    >
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <div class="row my-5 justify-content-center cardsContainer">
+      <div
+        class="col-md-5 d-flex flex-sm-row flex-column align-items-center justify-content-around customCard"
+        *ngFor="let user of sellers"
+      >
+        <div class="card__left py-4">
+          <div>
+            <img src="../../../assets/amazon_mobile.png" alt="" />
+          </div>
+        </div>
+        <div class="card__center">
+          <p class="card__name"><span>Name: </span> {{ user.name }}</p>
+          <p class="card__email"><span>Email: </span> {{ user.email }}</p>
+          <p class="card__password">
+            <span>Password: </span> {{ user.password }}
+          </p>
+          <p class="card_nathId">
+            <span>National Id: </span>
+            {{ user.national_id }}
+          </p>
+          <p class="card__status"><span>Mobile: </span> {{ user.mobile }}</p>
+          <p class="card__status">
+            <span>Location: </span> {{ user.address.country }},
+            {{ user.address.city }} , {{ user.address.street }} st
+          </p>
+          <p class="card__status p-0 m-0">
+            <span>Status: </span> {{ user.status }}
+          </p>
+        </div>
+        <div class="card__right align-self-start">
+          <div class="delete m-0 p-0" (click)="deleteseller(user.id)">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+          <div class="edit m-0 p-0" (click)="editseller(user.id)">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

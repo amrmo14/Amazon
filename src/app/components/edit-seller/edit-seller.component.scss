@@ -1,0 +1,64 @@
+.editUser {
+    h1 {
+      font-weight: 200;
+      margin: 2rem 0;
+      font-size: 3rem;
+    }
+    h1 span {
+      color: #ff9900;
+      font-weight: bold;
+    }
+    label {
+      color: #232f3e;
+      font-weight: bold;
+    }
+  
+    .editUser__left {
+      overflow: hidden;
+      img {
+        width: 100%;
+      }
+    }
+    .customBtn {
+      margin-top: 1rem;
+      padding: 0.3rem 2rem;
+      background-color: transparent;
+      border-radius: 1rem;
+      border: 0.1rem solid transparent;
+      transition: all 0.2s ease;
+      text-transform: uppercase;
+    }
+    .saveBtn {
+      background-color: #232f3e;
+      color: white;
+    }
+    .backBtn {
+      border: 0.1rem solid #232f3e;
+      color: #232f3e;
+    }
+    .saveBtn:hover {
+      background-color: #232f3e7d;
+    }
+  }
+  
+  //Outside the container //HEADER//
+  .backBtn:visited,
+  .backBtn:link {
+    text-decoration: none;
+    color: #232f3e;
+    transition: all 0.3s ease;
+    background-color: #ff9900;
+    p {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+  }
+  .backBtn:hover,
+  .backBtn:active {
+    color: #232f3e80;
+  }
+  i {
+    font-size: 1.5rem;
+    margin: 1rem;
+  }
+  
