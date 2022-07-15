@@ -95,7 +95,7 @@ export class EditUserComponent implements OnInit {
       
       setTimeout(()=>{
         this.show=false;
-        // this.router.navigate(['/users'])
+        this.router.navigate(['/users'])
       },1000) 
   }
 }
