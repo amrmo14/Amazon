@@ -1,10 +1,16 @@
-<div class="row p-4 justify-content-around text-center">
+<div class="row p-4 justify-content-around m-0">
 
-    <div class="col-3 card m-4 " >
-        <img [src]="prd?.Img" class="card-img-top" alt="..." >
+    <div class="col-6 card my-4 " >
+        <img [src]="prd?.Img" class="card-img-top vh-100" alt="..." >
+    </div>
+    <div class="col-6  my-4 " >
         <div class="card-body">
-            <h5 class="card-title">{{prd?.name}}</h5>
-            <h6>{{prd?.Price| currency}}</h6>
+            <h3 class="card-title">{{prd?.name}}</h3>
+            <h5>Brand : {{prd?.Brand}}</h5>
+            <h5>Price : {{prd?.Price| currency :'EGP' :'code'}}</h5>
+            <h5>Quantity : {{prd?.Quantity}}</h5>
+            <h5>Description : {{prd?.Description}}</h5>
+            
         </div>
       
        
