@@ -5,13 +5,13 @@
 
   <div class="container">
     <h1 class="products__header"><span>Amazon</span> products</h1>
-    <div class="row">
-      <a href="" class="addBtn col-2" routerLink="/addProduct" routerLinkActive="active">Add New product</a>
-    <form class="d-flex col-10" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" #prdName>
-      <button class="btn btn-outline-success" type="submit" (click)="search(prdName.value)">Search</button>
-    </form>
-    </div>
+    
+      <a href="" class="addBtn" routerLink="/addProduct" routerLinkActive="active">Add New product</a>
+    <!-- <form class="d-flex col-10" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"  #prdName >
+      <button class="btn btn-outline-success" type="submit" (click)="search(prdName.value)" >Search</button>
+    </form> -->
+    
     
     <div class="my-3">
       <label for="prdCat" class="my-1">Select Category:</label>
