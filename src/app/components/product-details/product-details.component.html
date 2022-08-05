@@ -1,24 +1,25 @@
 <a routerLink="/products" class="d-flex align-items-center backBtn">
     <i class="fa-solid fa-backward"></i>
     <p class="p-0 m-0">Back</p>
-  </a>
+</a>
 
 <div class="row p-4 justify-content-around m-0">
 
-    <div class="col-6 card my-4 " >
-        <img [src]="prd?.Img" class="card-img-top vh-100" alt="..." >
+    <div class="col-6 card my-4 ">
+        <div *ngFor="let img of prd?.imgs  ;let i=index">
+            <img *ngIf="i==0" [src]="img" class="card-img-top vh-100" alt="...">
+        </div>
     </div>
-    <div class="col-6  my-4 " >
+    <div class="col-6  my-4 ">
         <div class="card-body">
-            <h3 class="card-title">{{prd?.name}}</h3>
-            <h5>Brand : {{prd?.Brand}}</h5>
+            <h3 class="card-title">{{prd?.en?.name}}</h3>
+            <h5>Brand : {{prd?.en?.Brand}}</h5>
             <h5>Price : {{prd?.Price| currency :'EGP' :'code'}}</h5>
             <h5>Quantity : {{prd?.Quantity}}</h5>
-            <h5>Description : {{prd?.Description}}</h5>
-            
+            <!-- <h5>Description : {{prd?.en?.Description}}</h5> -->
+
         </div>
-      
-       
+
+
     </div>
-    </div>
-    
+</div>

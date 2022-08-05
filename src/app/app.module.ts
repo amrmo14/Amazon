@@ -10,7 +10,7 @@ import { SellersComponent } from './components/sellers/sellers.component';
 import { ProductsComponent } from './components/products/products.component';
 import { UsersService } from './services/users.service';
 import { HttpClientModule } from '@angular/common/http';
-
+import { NgxRerenderModule } from 'ngx-rerender';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 
 
@@ -25,6 +25,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireModule } from '@angular/fire/compat';
 import { EditSellerComponent } from './components/edit-seller/edit-seller.component';
+import { LoginComponent } from './components/login/login.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCpz7N83mSb4Rop6a6WvgVb3DZo8bCcZ8E",
@@ -51,6 +52,7 @@ const firebaseConfig = {
     ProductDetailsComponent,
     ProductComponent,
     EditSellerComponent,
+    LoginComponent,
   ],
 
   imports: [BrowserModule,
@@ -60,7 +62,7 @@ const firebaseConfig = {
     FormsModule,
     ReactiveFormsModule,
     
-
+    NgxRerenderModule,
 
     AngularFirestoreModule,
     AngularFireAuthModule, 

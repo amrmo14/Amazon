@@ -1,12 +1,22 @@
 export interface Iproduct {
+    en?:{
+        name?: string,
+        Description?:string,
+        Brand?:string,
+    },
+    ar?:{
+        name?: string,
+        Description?:string,
+        Brand?:string,
+    },
     id: number,
-    name: string,
-    Price: number,
+    Price:number ,
     Quantity: number,
-    Img: string,
+    imgs?: [],
     CateogryID: Number,
     itemTotalprice?:Number,
     count?:Number,
-    Description?:string,
-    Brand?:string,
+    Seller?:string,
+    ShipsFrom?:string,
+    Discount?:number,
 }

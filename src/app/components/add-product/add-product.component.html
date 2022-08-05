@@ -1,26 +1,74 @@
-<form #form ngNativeValidate class="container" *ngIf="currPrdID==0">
-    <div class="mb-2">
+<form #form ngNativeValidate class="container row" *ngIf="currPrdID==0">
+
+    <div class="mb-2 col-6">
         <label for="name" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name" name="name"  #nameInput="ngModel"
-        [(ngModel)]="newPrd.name"  required>
+        <input type="text" class="form-control" id="name" name="name" #nameInput="ngModel" [(ngModel)]="prdEn.name"
+            required>
+    </div>
+
+    <div class="mb-2 col-6" dir="rtl">
+        <label for="nameAR" class="form-label">اسم المنتج</label>
+        <input type="text" class="form-control" id="nameAR" name="nameAR" #nameInput="ngModel" [(ngModel)]="prdAr.name"
+            required>
     </div>
 
 
-    <div class="mb-2">
-        <label for="price" class="form-label">Price</label>
-        <input type="number" class="form-control" id="price" name="price" [(ngModel)]="newPrd.Price" required>
+    <div class="mb-2 col-6">
+        <label for="Brand" class="form-label">Brand</label>
+        <input type="text" class="form-control" id="Brand" name="Brand" [(ngModel)]="prdEn.Brand" required>
     </div>
 
-
-    <div class="mb-2">
-        <label for="Quantity" class="form-label">Quantity</label>
-        <input type="number" class="form-control" id="Quantity" name="Quantity" [(ngModel)]="newPrd.Quantity" required>
+    <div class="mb-2 col-6" dir="rtl">
+        <label for="BrandAR" class="form-label">العلامة التجارية</label>
+        <input type="text" class="form-control" id="BrandAR" name="BrandAR" [(ngModel)]="prdAr.Brand" required>
     </div>
 
+    <div class="mb-2 col-6">
 
-    <div class="mb-2">
-        <label for="Img" class="form-label">ImgURL</label>
-        <input type="url" class="form-control" id="Img" name="Img" [(ngModel)]="newPrd.Img" required>
+        <label for="description" class="form-label ">Description</label>
+        <div id="description" name="description">
+            <div class="row" *ngFor="let property of propertiesEn ;let i=index">
+                <div class="col-5">
+                    <label for="property{{i+1}}" class="form-label ">property </label>
+                    <input type="text" class="form-control " name="property{{i+1}}" [(ngModel)]="propertiesEn[i].name"
+                        required>
+                </div>
+                <div class="col-6">
+                    <label for="value{{i+1}}" class="form-label ">value </label>
+                    <input type="text" class="form-control " name="value{{i+1}}" [(ngModel)]="propertiesEn[i].value"
+                        required>
+                </div>
+                <div class=" float-end col-1 pt-4">
+                    <button *ngIf="property.value&&i==propertiesEn.length-1" class="btn btn-primary m-1 "
+                        (click)="addProperty()">+</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="mb-2 col-6" dir="rtl">
+        <label for="description" class="form-label ">حول هذه السلعة</label>
+        <div id="description" name="description">
+            <div class="row" *ngFor="let property of propertiesAR ;let i=index">
+                <div class="col-5">
+                    <label for="propertyAr{{i+1}}" class="form-label ">الوصف</label>
+                    <input type="text" class="form-control " name="propertyAr{{i+1}}" [(ngModel)]="propertiesAR[i].name"
+                        required>
+                </div>
+                <div class="col-6">
+                    <label for="valueAr{{i+1}}" class="form-label ">القيمة</label>
+                    <input type="text" class="form-control " name="valueAr{{i+1}}" [(ngModel)]="propertiesAR[i].value"
+                        required>
+                </div>
+                <div class=" float-end col-1 pt-4 ">
+                    <button *ngIf="i>0" class="btn btn-danger m-1 " (click)="removeProperty()">-</button>
+                </div>
+
+            </div>
+
+        </div>
     </div>
 
     <div class="mb-2">
@@ -33,23 +81,216 @@
     </div>
 
     <div class="mb-2">
-        <label for="Brand" class="form-label">Brand</label>
-        <input type="text" class="form-control" id="Brand" name="Brand" [(ngModel)]="newPrd.Brand" required>
+        <label for="price" class="form-label">Price</label>
+        <input type="number" class="form-control" id="price" name="price" [(ngModel)]="newPrd.Price" required>
     </div>
-    
+
+
     <div class="mb-2">
-        <label for="description" class="form-label">Description</label>
-        <textarea  class="form-control" rows="4" cols="50" id="description" name="description" [(ngModel)]="newPrd.Description" required></textarea>
+        <label for="Quantity" class="form-label">Quantity</label>
+        <input type="number" class="form-control" id="Quantity" name="Quantity" [(ngModel)]="newPrd.Quantity" required>
     </div>
+
+    <div class="mb-2">
+        <label for="Discount" class="form-label">Discount</label>
+        <input type="number" class="form-control" id="Discount" name="Discount" [(ngModel)]="newPrd.Discount">
+    </div>
+
+
+    <!-- <div class="mb-2">
+        <label for="Img" class="form-label">ImgURL</label>
+        <input type="url" class="form-control" id="Img" name="Img" [(ngModel)]="newPrd.Img" required>
+    </div> -->
+
+    <div class="mb-3 " *ngFor="let img of imgs ;let i=index">
+        <label for="img{{i+1}}" class="form-label">Img No.{{i+1}}</label>
+        <div class="row">
+            <div class="col-10">
+                <input type="url" class="form-control" name="img{{i+1}}" id="img{{i+1}}" [(ngModel)]="imgs[i]">
+            </div>
+
+            <div class=" float-end col-1">
+                <button  class="btn btn-primary m-1 " (click)="addImg()">+</button>
+            </div>
+            <div class=" float-end col-1">
+                <button *ngIf="i>0" class="btn btn-danger m-1 " (click)="removeImg()">-</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="mb-2">
+        <label for="Seller" class="form-label">Seller</label>
+        <input type="text" class="form-control" id="Seller" name="Seller" [(ngModel)]="newPrd.Seller" required>
+    </div>
+
+    <div class="mb-2">
+        <label for="ShipsFrom" class="form-label">Ships from</label>
+        <input type="text" class="form-control" id="ShipsFrom" name="ShipsFrom" [(ngModel)]="newPrd.ShipsFrom" required>
+    </div>
+
+
+
+
     <div *ngIf="show" class="alert alert-primary" role="alert">
         product added
-       </div>
+    </div>
     <button type="submit" class="btn btn-primary my-3" (click)="form.checkValidity()? addPrd():0">Submit</button>
-    
+
 </form>
 
 
-<form #form ngNativeValidate class="container" *ngIf="currPrdID!=0">
+
+
+
+
+<form #form ngNativeValidate class="container row" *ngIf="currPrdID!=0">
+
+    <div class="mb-2 col-6">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" name="name" #nameInput="ngModel"
+            [(ngModel)]="updatedProduct.en.name" required>
+    </div>
+
+    <div class="mb-2 col-6" dir="rtl">
+        <label for="nameAR" class="form-label">اسم المنتج</label>
+        <input type="text" class="form-control" id="nameAR" name="nameAR" #nameInput="ngModel"
+            [(ngModel)]="updatedProduct.ar.name" required>
+    </div>
+
+
+    <div class="mb-2 col-6">
+        <label for="Brand" class="form-label">Brand</label>
+        <input type="text" class="form-control" id="Brand" name="Brand" [(ngModel)]="updatedProduct.en.Brand" required>
+    </div>
+
+    <div class="mb-2 col-6" dir="rtl">
+        <label for="BrandAR" class="form-label">العلامة التجارية</label>
+        <input type="text" class="form-control" id="BrandAR" name="BrandAR" [(ngModel)]="updatedProduct.ar.Brand"
+            required>
+    </div>
+
+    <div class="mb-2 col-6">
+
+        <label for="description" class="form-label ">Description</label>
+        <div id="description" name="description">
+            <div class="row" *ngFor="let property of updatedProduct.en.Description ;let i=index">
+                <div class="col-5">
+                    <label for="property{{i+1}}" class="form-label ">property </label>
+                    <input type="text" class="form-control " name="property{{i+1}}"
+                        [(ngModel)]="updatedProduct.en.Description[i].name" required>
+                </div>
+                <div class="col-6">
+                    <label for="value{{i+1}}" class="form-label ">value </label>
+                    <input type="text" class="form-control " name="value{{i+1}}"
+                        [(ngModel)]="updatedProduct.en.Description[i].value" required>
+                </div>
+                <div class=" float-end col-1 pt-4">
+                    <button *ngIf="property.value&&i==updatedProduct.en.Description.length-1"
+                        class="btn btn-primary m-1 " (click)="addPropertyUpdate()">+</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="mb-2 col-6" dir="rtl">
+        <label for="description" class="form-label ">حول هذه السلعة</label>
+        <div id="description" name="description">
+            <div class="row" *ngFor="let property of updatedProduct.ar.Description ;let i=index">
+                <div class="col-5">
+                    <label for="propertyAr{{i+1}}" class="form-label ">الوصف</label>
+                    <input type="text" class="form-control " name="propertyAr{{i+1}}"
+                        [(ngModel)]="updatedProduct.ar.Description[i].name" required>
+                </div>
+                <div class="col-6">
+                    <label for="valueAr{{i+1}}" class="form-label ">القيمة</label>
+                    <input type="text" class="form-control " name="valueAr{{i+1}}"
+                        [(ngModel)]="updatedProduct.ar.Description[i].value" required>
+                </div>
+                <div class=" float-end col-1 pt-4 ">
+                    <button *ngIf="i>0" class="btn btn-danger m-1 " (click)="removePropertyUpdate()">-</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="mb-2">
+        <label for="cadID" class="form-label">Cateogry</label>
+
+        <select name="cadID" id="cadID" class="form-control" [(ngModel)]="updatedProduct.CateogryID" required>
+            <option selected disabled>Select Cateogry</option>
+            <option *ngFor="let cat of catlList" [value]="cat.id">{{cat.name}}</option>
+        </select>
+    </div>
+
+    <div class="mb-2">
+        <label for="price" class="form-label">Price</label>
+        <input type="number" class="form-control" id="price" name="price" [(ngModel)]="updatedProduct.Price" required>
+    </div>
+
+
+    <div class="mb-2">
+        <label for="Quantity" class="form-label">Quantity</label>
+        <input type="number" class="form-control" id="Quantity" name="Quantity" [(ngModel)]="updatedProduct.Quantity"
+            required>
+    </div>
+
+    <div class="mb-2">
+        <label for="Discount" class="form-label">Discount</label>
+        <input type="number" class="form-control" id="Discount" name="Discount" [(ngModel)]="updatedProduct.Discount">
+    </div>
+
+
+    <!-- <div class="mb-2">
+        <label for="Img" class="form-label">ImgURL</label>
+        <input type="url" class="form-control" id="Img" name="Img" [(ngModel)]="newPrd.Img" required>
+    </div> -->
+
+    <div class="mb-3 " *ngFor="let img of updatedProduct.imgs ;let i=index">
+        <label for="img{{i+1}}" class="form-label">Img No.{{i+1}}</label>
+        <div class="row">
+            <div class="col-10">
+                <input type="url" class="form-control " name="img{{i+1}}" id="img{{i+1}}"
+                    [(ngModel)]="updatedProduct.imgs[i]">
+            </div>
+
+            <div class=" float-end col-1">
+                <button  class="btn btn-primary m-1 "
+                    (click)="addImgUpdate()">+</button>
+            </div>
+            <div class=" float-end col-1">
+                <button *ngIf="i>0" class="btn btn-danger m-1 " (click)="removeImgUpdate()">-</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="mb-2">
+        <label for="Seller" class="form-label">Seller</label>
+        <input type="text" class="form-control" id="Seller" name="Seller" [(ngModel)]="updatedProduct.Seller" required>
+    </div>
+
+    <div class="mb-2">
+        <label for="ShipsFrom" class="form-label">Ships from</label>
+        <input type="text" class="form-control" id="ShipsFrom" name="ShipsFrom" [(ngModel)]="updatedProduct.ShipsFrom"
+            required>
+    </div>
+
+
+
+
+    <div *ngIf="show" class="alert alert-primary" role="alert">
+        product updated
+    </div>
+    <button type="submit" class="btn btn-primary my-3"
+        (click)="form.checkValidity()? updatePrd(updatedProduct.id,updatedProduct):0">Submit</button>
+
+</form>
+<!-- <form #form ngNativeValidate class="container" *ngIf="currPrdID!=0">
     <div class="mb-2">
         <label for="name" class="form-label">Name</label>
         <input type="text" class="form-control" id="name" name="name"  #nameInput="ngModel"
@@ -97,4 +338,4 @@
       </div>
     <button type="submit" class="btn btn-primary my-3"  (click)="form.checkValidity()? updatePrd(newPrd.id,newPrd):0">Submit</button>
     
-</form>
+</form> -->

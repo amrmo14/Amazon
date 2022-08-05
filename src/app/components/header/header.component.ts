@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+ isUser: boolean = false;
+  constructor(private router: Router) {
+  }
 
-  constructor() { }
+ 
+
 
   ngOnInit(): void {
+    if (localStorage.getItem("user")) {
+      this.isUser = true;
+      console.log(this.isUser)
+    }
+
+  }
+
+  logout() {
+    this.router.navigate(['/login'])
+    this.isUser = false
+    localStorage.clear()
   }
 
 }

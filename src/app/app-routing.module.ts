@@ -5,6 +5,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EditSellerComponent } from './components/edit-seller/edit-seller.component';
 
 import { EditUserComponent } from './components/edit-user/edit-user.component';
+import { UserAuthGuard } from './components/Guards/user-auth.guard';
+import { LoginComponent } from './components/login/login.component';
 
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
@@ -13,7 +15,8 @@ import { SellersComponent } from './components/sellers/sellers.component';
 import { UsersComponent } from './components/users/users.component';
 
 const routes: Routes = [
-  { path: '', component: DashboardComponent, pathMatch: 'full' },
+  { path: 'login', component: LoginComponent, pathMatch: 'full' },
+  { path: '', component: DashboardComponent, pathMatch: 'full' ,canActivate :[UserAuthGuard]},
   { path: 'users', component: UsersComponent, pathMatch: 'full' },
   { path: 'users/:id', component: EditUserComponent, pathMatch: 'full' },
   { path: 'sellers', component: SellersComponent, pathMatch: 'full' },

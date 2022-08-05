@@ -23,7 +23,7 @@
             <ng-container *ngFor="let prd of prdListOfCat ;let i=index">
                 <tr>
                     <td>{{prd.id}}</td>
-                    <td>{{prd.name}}</td>
+                    <td>{{prd.en.name}}</td>
                     <td>{{prd.Quantity}}</td>
                     <td >{{prd.Price | currency: 'EGP':'code'}}</td>
                     <td><button class="btn btn-warning m-1" (click)="openPrdDetails(prd.id)">Details</button></td>

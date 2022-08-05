@@ -5,6 +5,7 @@ import { Iproduct } from 'src/app/models/iproduct';
 import { CategoryService } from 'src/app/services/category.service';
 import { PrdApiService } from 'src/app/services/prd-api.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-add-product',
@@ -14,19 +15,24 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 export class AddProductComponent implements OnInit {
   catlList: any[]=[];
   newPrd:Iproduct={} as Iproduct;
+  prdEn:any={};
+  prdAr:any={}
   currPrdID: any;
   product: any;
+  updatedProduct: any;
+  imgs : any=[""]
+  propertiesEn : any=[{}]
+  propertiesAR : any=[{}]
+  // productFormGp: FormGroup;
   @ViewChild("form") form!:ElementRef;
   show: boolean = false;
   constructor(private categoryService:CategoryService,
     private prdApiservice:PrdApiService ,
     private router: Router,
     private actRout: ActivatedRoute,
-    private db :AngularFirestore) { 
-    // this.categoryService.getAllCategory().
-    //   subscribe(categoryList=>{
-    //    this.catlList=categoryList
-    //  });
+    private db :AngularFirestore,
+    private fb: FormBuilder,) { 
+
      this.db.collection("cateogry").get().subscribe(doc=>
       doc.docs.forEach(category=>
         this.catlList.push(category.data())))
@@ -43,8 +49,8 @@ export class AddProductComponent implements OnInit {
           this.product = product.data(); 
             this.product.id = product.id;
             if(this.product.id==this.currPrdID){
-              this.newPrd = this.product
-              console.log(this.newPrd)
+              this.updatedProduct = this.product
+              console.log(this.updatedProduct)
             }     
         })
       }
@@ -54,7 +60,35 @@ export class AddProductComponent implements OnInit {
     // });
   })
 }
+addImg(){
+  this.imgs.push("")
+}
+addImgUpdate(){
+  this.updatedProduct.imgs.push("")
+}
+removeImg(){
+  this.imgs.pop()
+}
+removeImgUpdate(){
+  this.updatedProduct.imgs.pop()
+}
+addProperty(){
+  this.propertiesEn.push({})
+  this.propertiesAR.push({})
+}
 
+addPropertyUpdate(){
+  this.updatedProduct.en.Description.push({})
+  this.updatedProduct.ar.Description.push({})
+}
+removeProperty(){
+  this.propertiesEn.pop()
+  this.propertiesAR.pop()
+}
+removePropertyUpdate(){
+  this.updatedProduct.en.Description.pop()
+  this.updatedProduct.ar.Description.pop()
+}
 
 updatePrd(PrdID:any,prd:Iproduct){
   // this. prdApiservice.editProudcut(this.currPrdID,this.newPrd).subscribe({
@@ -82,6 +116,12 @@ updatePrd(PrdID:any,prd:Iproduct){
   //     alert("Error occured: ");
   //   }
   // })
+  this.prdEn.Description=this.propertiesEn
+  this.prdAr.Description=this.propertiesAR
+  this.newPrd.en=this.prdEn;
+  this.newPrd.ar=this.prdAr;
+  this.newPrd.imgs=this.imgs;
+ 
 
   this.db.collection('products').add(this.newPrd)
   this.show=true;

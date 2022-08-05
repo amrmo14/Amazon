@@ -75,6 +75,7 @@ export class ProductComponent implements OnInit, OnChanges, OnDestroy {
         this.searchList.push(product)
       })
     })
+    console.log(this.prdListOfCat)
 
   }
 

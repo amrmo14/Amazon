@@ -1,5 +1,15 @@
-<nav class="customNav">
-  <a routerLink="">
-    <img src="./../../../assets/amazon_desk.png" alt="" class="header__logo" />
-  </a>
+<nav class="customNav row justify-content-between">
+  <div class="col-10">
+    <a routerLink="">
+      <img src="./../../../assets/amazon_desk.png" alt="" class="header__logo" />
+    </a>
+  </div>
+ 
+<div class="col-1" *mcRerender="isUser" >
+
+  <button  class="btn btn-dark text-light m-2 p-2" [hidden]="!isUser"  (click)="logout()">Logout</button>
+</div>
+
+
+  
 </nav>
